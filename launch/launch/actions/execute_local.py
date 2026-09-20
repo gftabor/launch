@@ -569,7 +569,6 @@ class ExecuteLocal(Action):
         try:
             # On Windows, Python scripts cannot be passed directly to CreateProcess().
             # Invoke them through the Python interpreter, matching ros2run behavior.
-            print('LAUNCH CMD:', cmd)
             if os.name == 'nt' and cmd and cmd[0].lower().endswith('.py'):
                 cmd.insert(0, sys.executable)
             transport, self._subprocess_protocol = await async_execute_process(
